@@ -1,0 +1,35 @@
+{\rtf1\ansi\deff3\adeflang1025
+{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\froman\fprq2\fcharset2 Symbol;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\froman\fprq2\fcharset238 Liberation Serif{\*\falt Times New Roman};}{\f4\fswiss\fprq2\fcharset238 Liberation Sans{\*\falt Arial};}{\f5\fnil\fprq2\fcharset238 Microsoft YaHei;}{\f6\fnil\fprq2\fcharset238 Arial;}{\f7\fswiss\fprq0\fcharset128 Arial;}}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}
+{\stylesheet{\s0\snext0\rtlch\af6\afs24\alang1081 \ltrch\lang1045\langfe2052\hich\af3\loch\nowidctlpar\hyphpar0\ltrpar\cf0\f3\fs24\lang1045\kerning1\dbch\af8\langfe2052 Normal;}
+{\s15\sbasedon0\snext16\rtlch\af6\afs28 \ltrch\hich\af4\loch\sb240\sa120\keepn\f4\fs28\dbch\af5 Nag\u322\'b3\u243\'f3wek;}
+{\s16\sbasedon0\snext16\loch\sl276\slmult1\sb0\sa140 Tre\u347\'9c\u263\'e6 tekstu;}
+{\s17\sbasedon16\snext17\rtlch\af7 \ltrch\loch\sl276\slmult1\sb0\sa140 Lista;}
+{\s18\sbasedon0\snext18\rtlch\af7\afs24\ai \ltrch\loch\sb120\sa120\noline\fs24\i Podpis;}
+{\s19\sbasedon0\snext19\rtlch\af7 \ltrch\loch\noline Indeks;}
+}{\*\generator LibreOffice/7.5.1.2$Windows_X86_64 LibreOffice_project/fcbaee479e84c6cd81291587d2ee68cba099e129}{\info{\creatim\yr0\mo0\dy0\hr0\min0}{\revtim\yr2023\mo4\dy10\hr17\min39}{\printim\yr0\mo0\dy0\hr0\min0}}{\*\userprops}\deftab709
+\hyphauto1\viewscale160
+{\*\pgdsctbl
+{\pgdsc0\pgdscuse451\pgwsxn11906\pghsxn16838\marglsxn1134\margrsxn1134\margtsxn1134\margbsxn1134\pgdscnxt0 Domy\u347\'3flny styl strony;}}
+\formshade\paperh16838\paperw11906\margl1134\margr1134\margt1134\margb1134\sectd\sbknone\pgndec\sftnnar\saftnnrlc\sectunlocked1\pgwsxn11906\pghsxn16838\marglsxn1134\margrsxn1134\margtsxn1134\margbsxn1134\ftnbj\ftnstart1\ftnrstcont\ftnnar\aenddoc\aftnrstcont\aftnstart1\aftnnrlc
+{\*\ftnsep\chftnsep}\pgndec\pard\plain \s0\rtlch\af6\afs24\alang1081 \ltrch\lang1045\langfe2052\hich\af3\loch\nowidctlpar\hyphpar0\ltrpar\cf0\f3\fs24\lang1045\kerning1\dbch\af8\langfe2052\ql\ltrpar{\loch
+To run my programs, read first \u8222\'84README\u8221\'94 file.\line \line The program uses library OpenCV to load all images in grayscale mode. Then it creates an image of the background, by taking the median of images\u8217\'92s pixels. That would not work well if the mouse would have spent most time in the same place, but fortunately, it didn\u8217\'92t. The next step is to measure the \u8222\'84distance\u8221\'94 of all images from the background in the sense of difference of grayed pixel values.}
+\par \pard\plain \s0\rtlch\af6\afs24\alang1081 \ltrch\lang1045\langfe2052\hich\af3\loch\nowidctlpar\hyphpar0\ltrpar\cf0\f3\fs24\lang1045\kerning1\dbch\af8\langfe2052\ql\ltrpar{\loch
+That difference can have two sources: the presence of the mouse (bigger difference of pixels), or \u8222\'84the noise\u8221\'94 of the background (smaller difference of pixels). Parameters \u8222\'84cut_off\u8221\'94 and \u8222\'84activation\u8221\'94 of function \u8222\'84divide_images_into_classes\u8221\'94 protect us from classifying images based on noise. }
+\par \pard\plain \s0\rtlch\af6\afs24\alang1081 \ltrch\lang1045\langfe2052\hich\af3\loch\nowidctlpar\hyphpar0\ltrpar\cf0\f3\fs24\lang1045\kerning1\dbch\af8\langfe2052\ql\ltrpar{\loch
+In the end, images are classified based on amount of pixels with big enough difference in all three sectors, and results of classification are displayed.}
+\par \pard\plain \s0\rtlch\af6\afs24\alang1081 \ltrch\lang1045\langfe2052\hich\af3\loch\nowidctlpar\hyphpar0\ltrpar\cf0\f3\fs24\lang1045\kerning1\dbch\af8\langfe2052\ql\ltrpar\loch
+
+\par \pard\plain \s0\rtlch\af6\afs24\alang1081 \ltrch\lang1045\langfe2052\hich\af3\loch\nowidctlpar\hyphpar0\ltrpar\cf0\f3\fs24\lang1045\kerning1\dbch\af8\langfe2052\ql\ltrpar{\loch
+The borders between sectors are given as the program arguments, as allowed in the description of the exercise. As my program does not use machine learning, I had to declare them openly to the program (suggested vslues of these arguments, 280 and 460, are eye-based). The suggested value of parameter \u8222\'84activation\u8221\'94 is based on the eye-observed size of the mouse. Practically, we can get rid of that parameter and classify image to the class with just the biggest amount of \u8222\'84big difference pixels\u8221\'94, but it would prevent us from classifying image to two classes in border cases, and I decided that having that possibility is more rational.\line The suggested value of \u8222\'84cut_off\u8221\'94 (48) was achieved quite simple by testing \u8211\'96 at values 40+ the classification \u8222\'84stabilizes\u8221\'94. And the value 49 leads to at least one image being unclassified\u8230\'85}
+\par \pard\plain \s0\rtlch\af6\afs24\alang1081 \ltrch\lang1045\langfe2052\hich\af3\loch\nowidctlpar\hyphpar0\ltrpar\cf0\f3\fs24\lang1045\kerning1\dbch\af8\langfe2052\ql\ltrpar\loch
+
+\par \pard\plain \s0\rtlch\af6\afs24\alang1081 \ltrch\lang1045\langfe2052\hich\af3\loch\nowidctlpar\hyphpar0\ltrpar\cf0\f3\fs24\lang1045\kerning1\dbch\af8\langfe2052\ql\ltrpar{\loch
+I believe that my program would work properly for white mouse, as it\u8217\'92s pixels would be lighter than the background. Surely the parameter \u8222\'84cut_off\u8221\'94 should be fitted to the darkness of the mouse, and the \u8222\'84activation\u8221\'94 fitted to the size of the mouse. }
+\par \pard\plain \s0\rtlch\af6\afs24\alang1081 \ltrch\lang1045\langfe2052\hich\af3\loch\nowidctlpar\hyphpar0\ltrpar\cf0\f3\fs24\lang1045\kerning1\dbch\af8\langfe2052\ql\ltrpar\loch
+
+\par \pard\plain \s0\rtlch\af6\afs24\alang1081 \ltrch\lang1045\langfe2052\hich\af3\loch\nowidctlpar\hyphpar0\ltrpar\cf0\f3\fs24\lang1045\kerning1\dbch\af8\langfe2052\ql\ltrpar{\loch
+The programs need a few seconds to finish (on my PC: ex1.py \u8211\'96 20 seconds, ex1mpi.py \u8211\'96 17 seconds). \line \line }
+\par \pard\plain \s0\rtlch\af6\afs24\alang1081 \ltrch\lang1045\langfe2052\hich\af3\loch\nowidctlpar\hyphpar0\ltrpar\cf0\f3\fs24\lang1045\kerning1\dbch\af8\langfe2052\ql\ltrpar\loch
+
+\par }
